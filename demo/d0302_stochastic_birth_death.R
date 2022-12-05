@@ -1,4 +1,4 @@
-#' # Simple birth-death difference equation model
+#' # Stochastic birth-death difference equation model
 
 library(RPiR)
 library(FernandaSanchezRSeries03)
