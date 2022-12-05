@@ -17,6 +17,6 @@ demo("d0105_run_birth_death", package = "FernandaSanchezRSeries03")
 
 }
 \author{
-Sonia Mitchell <sonia.mitchell@glasgow.ac.uk> (maintainer) \cr
+Fernanda Sanchez <2794747S@student.gla.ac.uk> (maintainer) \cr
 Richard Reeve <richard.reeve@glasgow.ac.uk>
 }
