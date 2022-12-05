@@ -4,7 +4,7 @@
 #' difference equation model.
 #'
 #' @author
-#' Sonia Mitchell <sonia.mitchell@glasgow.ac.uk> (maintainer) \cr
+#' Fernanda Sanchez <2794747S@student.gla.ac.uk> (maintainer) \cr
 #' Richard Reeve <richard.reeve@glasgow.ac.uk>
 #'
 #' @name FernandaSanchezRSeries03-package
