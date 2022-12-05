@@ -1,11 +1,10 @@
 Package: FernandaSanchezRSeries03
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
+Title: FernandaSanchezR
+Version: 0.1.1
+Author: Fernanda Sanchez Rodriguez
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: Creating first package 
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
