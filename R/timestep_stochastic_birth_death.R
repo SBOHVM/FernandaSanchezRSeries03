@@ -10,12 +10,40 @@
 #' @return Returns a data.frame containing the updated population
 #' @export
 #'
-timestep_stochastic_birth_death <- function(latest, birth.rate, death.rate) {
+timestep_stochastic_birth_death <- function(latest,birth.rate, death.rate, timestep) {
   # Calculate population changes
-  new.births <- birth.rate * latest$count
-  new.deaths <- death.rate * latest$count
-  next.count <- latest$count + new.births - new.deaths
+  effective.birth.rate<-birth.rate*timestep
+  effective.death.rate<-death.rate*timestep
+  new.count<-latest$count
+
+  new.births <- stats::rbinom(1, new.count, effective.birth.rate)
+  new.deaths <- stats::rbinom(1, new.count, effective.death.rate)
+
+  next.count <- new.count + new.births - new.deaths
 
   # Return data frame containing next population count
-  data.frame(count = next.count)
+  next.population<- data.frame(count = next.count,
+                              time=latest$time+timestep)
+
+
+  #Determine whether the experiment is finished
+  is.finished<-(new.count==0)
+
+  #Return both these pieces of information
+  list(updated.pop = next.population, end.experiment = is.finished)
+
+}
+
+
+
+
+#' #### Does the function works without any external (global) information?
+
+library(codetools)
+if (length(findGlobals(timestep_stochastic_birth_death,
+                       merge = FALSE)$variables) != 0) {
+  stop(
+    "Function timestep_stochastic_birth_death may not use global variable(s): ",
+    findGlobals(timestep_stochastic_birth_death, merge = FALSE)$variables
+  )
 }

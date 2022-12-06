@@ -2,10 +2,11 @@
 
 library(RPiR)
 library(FernandaSanchezRSeries03)
+library(stats)
 #' Set up the simulation parameters
 # Set the birth and death rates
-birth.rate <- 0.2
-death.rate <- 0.1
+human.annual.birth <- 0.2
+human.annual.death <- 0.1
 
 # Starting population size
 initial.count <- 1
@@ -14,23 +15,41 @@ initial.count <- 1
 start.time <- 0
 end.time <- 100
 
+timesteps<-1
+
 #' Run the simulation
 
 ## Set up the population starting size (at the first timestep)
-population.df <- data.frame(count = initial.count)
+population.df <- data.frame(count = initial.count,
+                            time=start.time)
 
-## the timesteps that the simulation will run through
-timesteps <- seq(from = start.time + 1, to = end.time)
+next.population <- timestep_stochastic_birth_death(latest = population.df,
+                                                birth.rate = human.annual.birth,
+                                                death.rate = human.annual.death,
+                                                timestep= timesteps)
+next.population
 
-## Now we loop through the time itself (starting at the second timestep)
-for (new.time in timesteps) {
-  updated.population <-
-    timestep_stochastic_birth_death(latest = tail(population.df, 1),
-                                   birth.rate = birth.rate,
-                                   death.rate = death.rate)
-  population.df <- rbind(population.df, updated.population)
-}
+## while loop
+latest.df<-population.df
+keep.going <- (latest.df$time < end.time)
+
+
+while (keep.going) {
+  data <- timestep_stochastic_birth_death(latest=latest.df,
+                                          birth.rate=human.annual.birth,
+                                          death.rate=human.annual.death,
+                                          timestep=timesteps)
+  latest.df <- data$updated.pop
+  population.df <- rbind(population.df, latest.df)
+
+  # The experiment may end stochastically or the time may run out
+  keep.going <- (!data$end.experiment) && (latest.df$time < end.time)
+  }
+
+population.df
 
 #' And plot the results
-population.df$time <- c(start.time, timesteps)
 plot_populations(population.df)
+
+
+

@@ -11,7 +11,8 @@ LazyData: true
 URL: https://github.com/SBOHVM/FernandaSanchezRSeries03
 BugReports: https://github.com/SBOHVM/FernandaSanchezRSeries03/issues
 Imports: 
-    RPiR (>= 0.76.20)
+    RPiR (>= 0.76.20),
+    stats
 Remotes: 
     SBOHVM/RPiR
 RoxygenNote: 7.2.2

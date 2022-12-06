@@ -12,6 +12,7 @@
 #' @docType package
 #'
 #' @import RPiR
+#' @import stats
 #'
 #' @examples
 #' \dontrun{
