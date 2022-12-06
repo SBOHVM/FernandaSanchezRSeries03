@@ -4,7 +4,7 @@
 \alias{timestep_stochastic_birth_death}
 \title{timestep_stochastic_birth_death}
 \usage{
-timestep_stochastic_birth_death(latest, birth.rate, death.rate)
+timestep_stochastic_birth_death(latest, birth.rate, death.rate, timestep)
 }
 \arguments{
 \item{latest}{a data.frame containing the latest population count
