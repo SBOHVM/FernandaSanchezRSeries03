@@ -15,6 +15,8 @@ timestep_stochastic_birth_death <- function(latest,birth.rate, death.rate, times
   effective.birth.rate<-birth.rate*timestep
   effective.death.rate<-death.rate*timestep
   new.count<-latest$count
+  if ((effective.birth.rate >= 1) || (effective.death.rate >= 1))
+    stop("Effective rate too high, timestep must be too big")
 
   new.births <- stats::rbinom(1, new.count, effective.birth.rate)
   new.deaths <- stats::rbinom(1, new.count, effective.death.rate)
@@ -27,7 +29,7 @@ timestep_stochastic_birth_death <- function(latest,birth.rate, death.rate, times
 
 
   #Determine whether the experiment is finished
-  is.finished<-(new.count==0)
+  is.finished<-(next.count==0)
 
   #Return both these pieces of information
   list(updated.pop = next.population, end.experiment = is.finished)
