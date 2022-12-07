@@ -6,6 +6,7 @@
 #' (column is 'count')
 #' @param birth.rate the birth rate
 #' @param death.rate the death rate
+#' @param timestep
 #'
 #' @return Returns a data.frame containing the updated population
 #' @export
@@ -38,14 +39,10 @@ timestep_stochastic_birth_death <- function(latest,birth.rate, death.rate, times
 
 
 
-
-#' #### Does the function works without any external (global) information?
-
-library(codetools)
-if (length(findGlobals(timestep_stochastic_birth_death,
+if (length(codetools::findGlobals(timestep_stochastic_birth_death,
                        merge = FALSE)$variables) != 0) {
   stop(
     "Function timestep_stochastic_birth_death may not use global variable(s): ",
-    findGlobals(timestep_stochastic_birth_death, merge = FALSE)$variables
+    codetools::findGlobals(timestep_stochastic_birth_death, merge = FALSE)$variables
   )
 }

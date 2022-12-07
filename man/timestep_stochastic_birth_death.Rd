@@ -13,6 +13,8 @@ timestep_stochastic_birth_death(latest, birth.rate, death.rate, timestep)
 \item{birth.rate}{the birth rate}
 
 \item{death.rate}{the death rate}
+
+\item{timestep}{}
 }
 \value{
 Returns a data.frame containing the updated population
