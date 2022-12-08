@@ -1,4 +1,4 @@
-#' timestep_stochastic_SIS
+#' timestep_stochastic_SIR
 #' Run one step of a simple deterministic SIS model
 #'
 #' @param latest a data.frame containing the latest population count
@@ -11,8 +11,8 @@
 #' @export
 #'
 
-timestep_stochastic_SIS <- function(latest, transmission.rate, recovery.rate, timestep) {
-  population.size<-latest$susceptibles+ latest$infecteds
+timestep_stochastic_SIR <- function(latest, transmission.rate, recovery.rate, timestep) {
+  population.size<-latest$susceptibles+ latest$infecteds + latest$recovereds
   effective.transmission.rate<- transmission.rate*timestep
   actual.infection.rate<-effective.transmission.rate * (latest$infected/population.size)
   effective.recovery.rate<-recovery.rate*timestep
@@ -23,12 +23,16 @@ timestep_stochastic_SIS <- function(latest, transmission.rate, recovery.rate, ti
   new.recovered <- stats::rbinom(1,latest$infected, effective.recovery.rate)
   new.infected<-stats::rbinom(1,latest$susceptibles, actual.infection.rate)
 
-  next.susceptibles <- latest$susceptibles - new.infected + new.recovered
+  next.susceptibles <- latest$susceptibles - new.infected
   next.infecteds <- latest$infecteds + new.infected- new.recovered
+  next.recovereds<-latest$recovereds+new.recovered
+
+
 
   # Return data frame containing next population count
   next.population<- data.frame(susceptibles = next.susceptibles,
                                infecteds=next.infecteds,
+                               recovereds=next.recovereds,
                                time=latest$time+timestep)
 
 
@@ -41,7 +45,6 @@ timestep_stochastic_SIS <- function(latest, transmission.rate, recovery.rate, ti
 }
 
 
-RPiR::assert_no_globals(timestep_stochastic_SIS)
-
+RPiR::assert_no_globals(timestep_stochastic_SIR)
 
 
