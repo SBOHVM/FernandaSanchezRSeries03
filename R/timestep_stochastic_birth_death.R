@@ -1,14 +1,14 @@
 #' timestep_stochastic_birth_death
 #'
-#' Run one step of a simple deterministic exponential birth-death model
+#' Run a timestep of a simple stochastic birth-death model
 #'
-#' @param latest a data.frame containing the latest population count
-#' (column is 'count')
+#' @param latest a data.frame containing the latest population count and time
+#' (column is 'count' and 'time')
 #' @param birth.rate the birth rate
 #' @param death.rate the death rate
-#' @param timestep
+#' @param timestep the time interval
 #'
-#' @return Returns a data.frame containing the updated population
+#' @return Returns a data.frame containing the updated population and time
 #' @export
 #'
 timestep_stochastic_birth_death <- function(latest,birth.rate, death.rate, timestep) {
@@ -16,15 +16,19 @@ timestep_stochastic_birth_death <- function(latest,birth.rate, death.rate, times
   effective.birth.rate<-birth.rate*timestep
   effective.death.rate<-death.rate*timestep
   new.count<-latest$count
+
+  #Stop the function if birth or death rate is igual or greater than 1
   if ((effective.birth.rate >= 1) || (effective.death.rate >= 1))
     stop("Effective rate too high, timestep must be too big")
 
+  #Calculate new births and new deaths with random binomial numbers with a probability of birth or death rate, to make it stochastic.
   new.births <- stats::rbinom(1, new.count, effective.birth.rate)
   new.deaths <- stats::rbinom(1, new.count, effective.death.rate)
 
+  # Our final equation
   next.count <- new.count + new.births - new.deaths
 
-  # Return data frame containing next population count
+  # Return data frame containing next population count and time
   next.population<- data.frame(count = next.count,
                               time=latest$time+timestep)
 
@@ -37,12 +41,7 @@ timestep_stochastic_birth_death <- function(latest,birth.rate, death.rate, times
 
 }
 
+RPiR::assert_no_globals(timestep_stochastic_birth_death)
 
 
-if (length(codetools::findGlobals(timestep_stochastic_birth_death,
-                       merge = FALSE)$variables) != 0) {
-  stop(
-    "Function timestep_stochastic_birth_death may not use global variable(s): ",
-    codetools::findGlobals(timestep_stochastic_birth_death, merge = FALSE)$variables
-  )
-}
+

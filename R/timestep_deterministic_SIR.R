@@ -33,3 +33,4 @@ timestep_deterministic_SIR <- function(latest, transmission.rate, recovery.rate,
              time=latest$time+timestep)
 }
 
+RPiR::assert_no_globals(timestep_deterministic_SIR)
