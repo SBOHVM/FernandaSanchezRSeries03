@@ -7,7 +7,7 @@
 #' @param recovery.rate the recovery rate
 #' @param timestep the time interval
 #'
-#' @return Returns a data.frame containing the updated population of infecteds, susceptibles, recovereds and time
+#' @return Returns a data.frame containing the updated population of infecteds, susceptibles, recovereds, as well as time
 #' @export
 #'
 
