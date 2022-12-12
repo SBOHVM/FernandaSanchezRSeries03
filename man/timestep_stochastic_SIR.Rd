@@ -2,25 +2,23 @@
 % Please edit documentation in R/timestep_stochastic_SIR.R
 \name{timestep_stochastic_SIR}
 \alias{timestep_stochastic_SIR}
-\title{timestep_stochastic_SIR
-Run one step of a simple deterministic SIS model}
+\title{timestep_stochastic_SIR}
 \usage{
 timestep_stochastic_SIR(latest, transmission.rate, recovery.rate, timestep)
 }
 \arguments{
-\item{latest}{a data.frame containing the latest population count
-(column is 'count')}
+\item{latest}{a data.frame containing the latest population of infecteds, susceptibles and recovereds, as well as time
+(column is 'infecteds', 'susceptibles', 'recovereds' and 'time')}
 
-\item{transmission.rate}{the birth rate}
+\item{transmission.rate}{the transmission rate}
 
-\item{recovery.rate}{the death rate}
+\item{recovery.rate}{the recovery rate}
 
-\item{timestep}{}
+\item{timestep}{the time interval}
 }
 \value{
-Returns a data.frame containing the updated population
+Returns a data.frame containing the updated population of infecteds, susceptibles, recovereds and time.
 }
 \description{
-timestep_stochastic_SIR
-Run one step of a simple deterministic SIS model
+Run a timestep of a simple stochastic SIR model
 }

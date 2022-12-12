@@ -3,24 +3,24 @@
 \name{timestep_deterministic_SIR}
 \alias{timestep_deterministic_SIR}
 \title{timestep_deterministic_SIR
-Run one step of a simple deterministic SIS model}
+Run a timestep of a simple deterministic SIS model}
 \usage{
 timestep_deterministic_SIR(latest, transmission.rate, recovery.rate, timestep)
 }
 \arguments{
-\item{latest}{a data.frame containing the latest population count
-(column is 'count')}
+\item{latest}{a data.frame containing the latest population of infecteds, susceptibles, recovereds, as well as time
+(column is 'infecteds', 'susceptibles', 'recovereds' and 'time')}
 
-\item{transmission.rate}{the birth rate}
+\item{transmission.rate}{the transmission rate}
 
-\item{recovery.rate}{the death rate}
+\item{recovery.rate}{the recovery rate}
 
-\item{timestep}{}
+\item{timestep}{the time interval}
 }
 \value{
-Returns a data.frame containing the updated population
+Returns a data.frame containing the updated population of infecteds, susceptibles, recovereds and time
 }
 \description{
 timestep_deterministic_SIR
-Run one step of a simple deterministic SIS model
+Run a timestep of a simple deterministic SIS model
 }

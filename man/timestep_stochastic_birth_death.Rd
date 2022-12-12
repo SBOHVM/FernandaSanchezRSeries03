@@ -7,18 +7,18 @@
 timestep_stochastic_birth_death(latest, birth.rate, death.rate, timestep)
 }
 \arguments{
-\item{latest}{a data.frame containing the latest population count
-(column is 'count')}
+\item{latest}{a data.frame containing the latest population count and time
+(column is 'count' and 'time')}
 
 \item{birth.rate}{the birth rate}
 
 \item{death.rate}{the death rate}
 
-\item{timestep}{}
+\item{timestep}{the time interval}
 }
 \value{
-Returns a data.frame containing the updated population
+Returns a data.frame containing the updated population and time
 }
 \description{
-Run one step of a simple deterministic exponential birth-death model
+Run a timestep of a simple stochastic birth-death model
 }

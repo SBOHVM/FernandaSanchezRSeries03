@@ -4,8 +4,8 @@
 #'
 #' @param latest a data.frame containing the latest population of infecteds, susceptibles and recovereds, as well as time
 #' (column is 'infecteds', 'susceptibles', 'recovereds' and 'time')
-#' @param transmission.rate the birth rate
-#' @param recovery.rate the death rate
+#' @param transmission.rate the transmission rate
+#' @param recovery.rate the recovery rate
 #' @param timestep the time interval
 #'
 #' @return Returns a data.frame containing the updated population of infecteds, susceptibles, recovereds and time.
@@ -27,7 +27,7 @@ timestep_stochastic_SIR <- function(latest, transmission.rate, recovery.rate, ti
   new.recovered <- stats::rbinom(1,latest$infected, effective.recovery.rate)
   new.infected<-stats::rbinom(1,latest$susceptibles, actual.infection.rate)
 
-  # Our final equatio,
+  # Our final equation
   next.susceptibles <- latest$susceptibles - new.infected
   next.infecteds <- latest$infecteds + new.infected- new.recovered
   next.recovereds<-latest$recovereds+new.recovered

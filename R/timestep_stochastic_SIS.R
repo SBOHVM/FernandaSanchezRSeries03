@@ -4,8 +4,8 @@
 #'
 #' @param latest a data.frame containing the latest infecteds and susceptibles, as well as time
 #' (column is 'infecteds', 'susceptibles' and 'time')
-#' @param transmission.rate the birth rate
-#' @param recovery.rate the death rate
+#' @param transmission.rate the transmission rate
+#' @param recovery.rate the transmission rate
 #' @param timestep the time interval
 #'
 #' @return Returns a data.frame containing the updated population of infecteds and susceptibles, as wel as time

@@ -1,5 +1,6 @@
 d0105_run_birth_death   Simple birth-death difference equation model
-d0302_stochastic_birth_death   Simple stochastic birth-death equation
-d0303_run_birth_death    Simple stochastic birth-death run
-d0304_run_SIS    Simple stochastic SIS model
-d0305_run_SIR    Simple stochastic SIR model
+d0302_stochastic_birth_death   Timestep stochastic birth-death equation
+d0303_run_birth_death    Timestep stochastic birth-death run
+d0304_run_SIS    Timestep stochastic SIS model
+d0305_run_SIR    Timestep stochastic SIR model
+d0306_mean_SIR    Average timestep stochastic SIR model

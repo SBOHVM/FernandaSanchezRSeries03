@@ -19,3 +19,5 @@ step_deterministic_birth_death <- function(latest, birth.rate, death.rate) {
   # Return data frame containing next population count
   data.frame(count = next.count)
 }
+
+RPiR::assert_no_globals(step_deterministic_birth_death)

@@ -1,13 +1,13 @@
 #' timestep_deterministic_SIR
-#' Run one step of a simple deterministic SIS model
+#' Run a timestep of a simple deterministic SIS model
 #'
-#' @param latest a data.frame containing the latest population count
-#' (column is 'count')
-#' @param transmission.rate the birth rate
-#' @param recovery.rate the death rate
-#' @param timestep
+#' @param latest a data.frame containing the latest population of infecteds, susceptibles, recovereds, as well as time
+#' (column is 'infecteds', 'susceptibles', 'recovereds' and 'time')
+#' @param transmission.rate the transmission rate
+#' @param recovery.rate the recovery rate
+#' @param timestep the time interval
 #'
-#' @return Returns a data.frame containing the updated population
+#' @return Returns a data.frame containing the updated population of infecteds, susceptibles, recovereds and time
 #' @export
 #'
 
@@ -22,6 +22,7 @@ timestep_deterministic_SIR <- function(latest, transmission.rate, recovery.rate,
   new.recovered <- effective.recovery.rate * latest$infecteds
   new.infected <- effective.transmission.rate * ((latest$susceptibles*latest$infecteds)/population.size)
 
+  # Our final equation
   next.susceptibles <- latest$susceptibles - new.infected
   next.infecteds <- latest$infecteds + new.infected- new.recovered
   next.recovereds<-latest$recovereds+new.recovered
