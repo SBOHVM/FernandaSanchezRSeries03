@@ -1,6 +1,9 @@
 # FernandaSanchezRSeries03
-What the Package Does (Title Case)
+Sthochastic models
+
+
 Practical series 03: creating a package
+
 
 [My comments on Raven's repository] (https://github.com/SBOHVM/rayewbSeries03/issues/1)
 

@@ -18,7 +18,7 @@ timestep_deterministic_SIR(latest, transmission.rate, recovery.rate, timestep)
 \item{timestep}{the time interval}
 }
 \value{
-Returns a data.frame containing the updated population of infecteds, susceptibles, recovereds and time
+Returns a data.frame containing the updated population of infecteds, susceptibles, recovereds, as well as time
 }
 \description{
 timestep_deterministic_SIR

@@ -1,10 +1,10 @@
 Package: FernandaSanchezRSeries03
 Type: Package
-Title: FernandaSanchezR
+Title: Stochastic models
 Version: 0.1.1
 Author: Fernanda Sanchez Rodriguez
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: Creating first package 
+Description: Creating our first package with stochastic models in birth and death models, as well as SIS and SIR models.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
@@ -15,4 +15,4 @@ Imports:
     stats
 Remotes: 
     SBOHVM/RPiR
-RoxygenNote: 7.2.2
+RoxygenNote: 7.2.3
