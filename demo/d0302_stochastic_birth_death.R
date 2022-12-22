@@ -1,4 +1,19 @@
-#' # Stochastic birth-death difference equation model
+#' ---
+#' title: "Stochastic birth-death difference equation model"
+#' author: "Fernanda Sánchez"
+#' date: '`r format(Sys.Date(), "%B %d %Y")`'
+#' output: html_document
+#' ---
+#'
+
+#' We are going to evaluate the population growth with a stochastic model, by adding randomness to the birth and death counts.
+#' We will compare this model with different birth and death rates, as well as changing the end time and timesteps of the simulation.
+#'
+#' 1. Birth-death model: where $\beta$ is the birth rate and $\lambda$ the death rate
+#'
+#'    $$N(t + 1) = N(t)+ rbinom(1,N(t),\beta) - rbinom(1,N(t),\lambda)$$
+#'
+#'
 
 library(RPiR)
 library(FernandaSanchezRSeries03)

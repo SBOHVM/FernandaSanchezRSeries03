@@ -1,7 +1,22 @@
-#' # Simple birth-death difference equation model
+#' ---
+#' title: "Simple birth-death difference equation model"
+#' author: "Fernanda Sánchez"
+#' date: '`r format(Sys.Date(), "%B %d %Y")`'
+#' output: html_document
+#' ---
+#'
+
+#' We are going to evaluate the population growth with a birth rate of 0.2 and death rate of 0.1.
+#'
+#' 1. Birth-death model: where $\beta$ is the birth rate and $\lambda$ the death rate
+#'
+#'    $$N(t + 1) = N(t)+ (N(t)\times\beta) - (N(t)\times\lambda)$$
+#'
+#'
 
 library(RPiR)
 library(FernandaSanchezRSeries03)
+
 #' Set up the simulation parameters
 # Set the birth and death rates
 birth.rate <- 0.2

@@ -2,8 +2,8 @@ Package: FernandaSanchezRSeries03
 Type: Package
 Title: Stochastic models
 Version: 0.1.1
-Author: Fernanda Sanchez Rodriguez
-Maintainer: The package maintainer <yourself@somewhere.net>
+Authors@R: person("Fernanda", "Sanchez", email = "2794747S@student.gla.ac.uk",
+                  role = c("cre", "aut"))
 Description: Creating our first package with stochastic models in birth and death models, as well as SIS and SIR models.
 License: What license is it under?
 Encoding: UTF-8

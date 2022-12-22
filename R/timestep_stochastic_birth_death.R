@@ -1,6 +1,6 @@
 #' timestep_stochastic_birth_death
 #'
-#' Run a timestep of a simple stochastic birth-death model
+#' Run a timestep of a stochastic birth-death model
 #'
 #' @param latest a data.frame containing the latest population count and time
 #' (column is 'count' and 'time')

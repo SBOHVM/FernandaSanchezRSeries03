@@ -2,8 +2,7 @@
 % Please edit documentation in R/timestep_deterministic_SIS.R
 \name{timestep_deterministic_SIS}
 \alias{timestep_deterministic_SIS}
-\title{timestep_deterministic_SIS
-Run a timestep of a simple deterministic SIS model}
+\title{timestep_deterministic_SIS}
 \usage{
 timestep_deterministic_SIS(latest, transmission.rate, recovery.rate, timestep)
 }
@@ -21,6 +20,5 @@ timestep_deterministic_SIS(latest, transmission.rate, recovery.rate, timestep)
 Returns a data.frame containing the updated population of infecteds and susceptibles, as well as time
 }
 \description{
-timestep_deterministic_SIS
 Run a timestep of a simple deterministic SIS model
 }

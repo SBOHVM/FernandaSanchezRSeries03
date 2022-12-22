@@ -1,8 +1,38 @@
-#' # Average stochastic SIR model
+#' ---
+#' title: "Average stochastic SIR model"
+#' author: "Fernanda Sánchez"
+#' date: '`r format(Sys.Date(), "%B %d %Y")`'
+#' output: html_document
+#' ---
+#'
 
 library(RPiR)
 library(FernandaSanchezRSeries03)
 library(stats)
+
+#' We are going to compare the stochastic and deterministic Susceptible-Infected-Recovered (SIR) model.
+#'
+#'
+#'SIR Model
+#'
+#' 1. Susceptible model
+#'
+#'    $$S(t + 1) = S(t)-rbinom(1,I(t),\beta)$$
+#'
+#' 2. Infected model
+#'
+#'    $$I(t + 1) = S(t)+rbinom(1,I(t),\beta)- rbinom(1, I(t),\sigma)$$
+#'
+#' 3. Recovered model
+#'
+#'    $$R(t + 1) = R(t)+ rbinom(1, I(t),\sigma)$$
+#'
+#' 4. N is a constant for total population
+#'
+#'    $$N = S(t)+ I(t) + R(t)$$
+#'
+#'
+
 
 #' # Simulation A where R0=2
 #'

@@ -1,4 +1,5 @@
 #' timestep_deterministic_SIR
+#'
 #' Run a timestep of a simple deterministic SIS model
 #'
 #' @param latest a data.frame containing the latest population of infecteds, susceptibles, recovereds, as well as time

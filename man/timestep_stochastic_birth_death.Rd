@@ -20,5 +20,5 @@ timestep_stochastic_birth_death(latest, birth.rate, death.rate, timestep)
 Returns a data.frame containing the updated population and time
 }
 \description{
-Run a timestep of a simple stochastic birth-death model
+Run a timestep of a stochastic birth-death model
 }

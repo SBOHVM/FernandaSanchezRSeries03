@@ -1,4 +1,27 @@
-#' # Stochastic Susceptible-Infected-Susceptible (SIS) model
+#' ---
+#' title: "Stochastic Susceptible-Infected-Susceptible (SIS) model"
+#' author: "Fernanda Sánchez"
+#' date: '`r format(Sys.Date(), "%B %d %Y")`'
+#' output: html_document
+#' ---
+#'
+
+
+#' We are going to compare the stochastic and deterministic Susceptible-Infected-Susceptible (SIS) models.
+#'
+#' 1. Susceptible model
+#'
+#'    $$S(t + 1) = S(t)-rbinom(1,I(t),\beta)+ rbinom(1, I(t),\sigma)$$
+#'
+#' 2. Infected model
+#'
+#'    $$I(t + 1) = S(t)+rbinom(1,I(t),\beta)- rbinom(1, I(t),\sigma)$$
+#'
+#' 3. N is a constant for total population
+#'
+#'    $$N = S(t)+ I(t)$$
+#'
+#'
 
 library(RPiR)
 library(FernandaSanchezRSeries03)

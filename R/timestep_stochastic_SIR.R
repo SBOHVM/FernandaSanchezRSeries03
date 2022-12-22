@@ -20,7 +20,7 @@ timestep_stochastic_SIR <- function(latest, transmission.rate, recovery.rate, ti
   effective.recovery.rate<-recovery.rate*timestep
 
   # Stop the function if transmission or recovery rate is bigger than 1
-  if ((effective.transmission.rate >= 1) || (effective.recovery.rate >= 1))
+  if ((actual.infection.rate >= 1) || (effective.recovery.rate >= 1))
     stop("Effective rate too high, timestep must be too big")
 
   #Calculate new recovered and new infected with random binomial numbers with a probability of transmission or recovery rate, to make it stochastic.

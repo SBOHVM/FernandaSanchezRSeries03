@@ -1,4 +1,18 @@
-#' # Stochastic birth-death difference equation model, with run_simple and run_simulation
+#' ---
+#' title: "Stochastic birth-death difference equation model, with run_simple and run_simulation"
+#' author: "Fernanda Sánchez"
+#' date: '`r format(Sys.Date(), "%B %d %Y")`'
+#' output: html_document
+#' ---
+#'
+
+#' We are going to run our stochastic birth death model through two other functions, run simple and run simulation.
+#'
+#' 1. Birth-death model: where $\beta$ is the birth rate and $\lambda$ the death rate
+#'
+#'    $$N(t + 1) = N(t)+ rbinom(1,N(t),\beta) - rbinom(1,N(t),\lambda)$$
+#'
+#'
 
 library(RPiR)
 library(FernandaSanchezRSeries03)
