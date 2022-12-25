@@ -20,5 +20,5 @@ timestep_deterministic_SIR(latest, transmission.rate, recovery.rate, timestep)
 Returns a data.frame containing the updated population of infecteds, susceptibles, recovereds, as well as time
 }
 \description{
-Run a timestep of a simple deterministic SIS model
+Run a timestep of a deterministic SIR model
 }

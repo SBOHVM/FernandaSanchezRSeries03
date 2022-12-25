@@ -1,6 +1,6 @@
 #' timestep_deterministic_SIS
 #'
-#' Run a timestep of a simple deterministic SIS model
+#' Run a timestep of a deterministic SIS model
 #'
 #' @param latest a data.frame containing the latest infected and susceptible population, as well as time
 #' (column is 'infecteds', 'susceptibles' and 'time')

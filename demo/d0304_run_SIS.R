@@ -6,26 +6,27 @@
 #' ---
 #'
 
+library(RPiR)
+library(FernandaSanchezRSeries03)
+library(stats)
 
 #' We are going to compare the stochastic and deterministic Susceptible-Infected-Susceptible (SIS) models.
 #'
+#' **SIS model**
+#'
 #' 1. Susceptible model
 #'
-#'    $$S(t + 1) = S(t)-rbinom(1,I(t),\beta)+ rbinom(1, I(t),\sigma)$$
+#'    $$S(t + 1) = S(t)-\beta \times \frac{S(t)\times I(t)}{N}+\sigma \times I(t)$$
 #'
 #' 2. Infected model
 #'
-#'    $$I(t + 1) = S(t)+rbinom(1,I(t),\beta)- rbinom(1, I(t),\sigma)$$
+#'    $$I(t + 1) = S(t)+\beta \times \frac{S(t)\times I(t)}{N}-\sigma \times I(t)$$
 #'
 #' 3. N is a constant for total population
 #'
 #'    $$N = S(t)+ I(t)$$
 #'
 #'
-
-library(RPiR)
-library(FernandaSanchezRSeries03)
-library(stats)
 
 #' # Compare stochastic and deterministic models
 #'

@@ -20,5 +20,5 @@ timestep_stochastic_SIR(latest, transmission.rate, recovery.rate, timestep)
 Returns a data.frame containing the updated population of infecteds, susceptibles, recovereds and time.
 }
 \description{
-Run a timestep of a simple stochastic SIR model
+Run a timestep of a stochastic SIR model
 }

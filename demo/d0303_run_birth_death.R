@@ -6,20 +6,17 @@
 #' ---
 #'
 
-#' We are going to run our stochastic birth death model through two other functions, run simple and run simulation.
-#'
-#' 1. Birth-death model: where $\beta$ is the birth rate and $\lambda$ the death rate
-#'
-#'    $$N(t + 1) = N(t)+ rbinom(1,N(t),\beta) - rbinom(1,N(t),\lambda)$$
-#'
-#'
-
 library(RPiR)
 library(FernandaSanchezRSeries03)
 library(stats)
 
-#'Enables the code blocks to see each other, making it easier to plot in different blocks
-knitr::opts_knit$set(global.device = TRUE)
+#' We are going to run our stochastic birth death model through two other functions, run simple and run simulation.
+#'
+#' **Birth-death model**: where $\beta$ is the birth rate and $\lambda$ the death rate
+#'
+#'    $$N(t + 1) = N(t)+ (N(t)\times\beta) - (N(t)\times\lambda)$$
+#'
+#'
 
 #' Set up the simulation parameters
 # Set the birth and death rates
@@ -70,7 +67,7 @@ final.populations.a.2 <- run_simulation(timestep_stochastic_birth_death,
 
 plot_populations(final.populations.a.2)
 
-#' ## Compare stochastic and deterministic models
+#' # Compare stochastic and deterministic models
 #'
 #' Set up the simulation parameters
 # Set the birth and death rates
@@ -86,6 +83,9 @@ end.time.b <- 100
 
 this.timesteps.b<-1
 
+#' ## Stochastic simulation
+#'
+#'
 #' Using run simple function
 population.df.b <- data.frame(count = initial.count.b,
                             time=start.time.b)
@@ -98,7 +98,7 @@ final.populations.b <- run_simple(timestep_stochastic_birth_death,
                                 timestep = this.timesteps.b)
 plot_populations(final.populations.b)
 
-#' # For loop
+#' For loop
 #'
 #'Instead of having to specify the simulation inside of the for loop (as we did in 3.2), we just use run_simple or run_simulation.
 #'
@@ -124,15 +124,21 @@ for (i in 1:10){
                      new.graph = FALSE, lty=1)
   }
 }
+plt <- recordPlot()
 
-#' # For loop deterministic:
-#' for this we need to modify the data frame and not include timestep inside the function
+#' ## Deterministic simulation
+#'
+#'
+#' For this we need to modify the data frame and not include timestep inside the function
 #'
 
 population.df.b.det <- data.frame(count = initial.count.b)
 
 timesteps.b.det<-seq(from=start.time.b + this.timesteps.b, to=end.time.b )
 
+#' For loop
+#'
+#'
 for (new.time in timesteps.b.det) {
   updated.population.b.det <-
     step_deterministic_birth_death(latest = tail(population.df.b.det, 1),
@@ -145,6 +151,7 @@ for (new.time in timesteps.b.det) {
 population.df.b.det$time <- c(start.time.b, timesteps.b.det)
 
 #' **Plot together**
+replayPlot(plt)
 plot_populations(population.df.b.det, new.graph=FALSE, col=c("red"), lty=1)
 legend("topright", legend = c("stochastic", "deterministic"),
        col = c("black", "red"), lty=c(1,1))
@@ -154,7 +161,8 @@ legend("topright", legend = c("stochastic", "deterministic"),
 #' But the stochastic model given different outputs according to different scenarios.
 #'
 #'
-#' ## Increase initial population size
+
+#' # Increase initial population size
 #'
 #'
 #' To be able to plot correctly the increase of initial population size,
@@ -176,6 +184,9 @@ end.time.c <- 100
 
 this.timesteps.c<-1
 
+#' ## Stochastic simulation
+#'
+#'
 #' Using run simple function
 population.df.c <- data.frame(count = initial.count.c,
                             time=start.time.c)
@@ -189,7 +200,7 @@ final.populations.c <- run_simple(timestep_stochastic_birth_death,
 
 plot_populations(final.populations.c)
 
-#' # For loop
+#' For loop
 #'
 #'
 population.df.c <- data.frame(count = initial.count.c,
@@ -216,12 +227,16 @@ for (i in 1:10){
                      ylim = c(0, 100 * initial.count.c))
   }
 }
+plt <- recordPlot()
 
-#' # For loop deterministic
+#' ## Deterministic simulation
+#'
+#'
 population.df.c.det <- data.frame(count = initial.count.c)
 
 timesteps.c.det<-seq(from=start.time.c + this.timesteps.c, to=end.time.c )
 
+#' For loop
 for (new.time in timesteps.c.det) {
   updated.population.c.det <-
     step_deterministic_birth_death(latest = tail(population.df.c.det, 1),
@@ -234,7 +249,7 @@ for (new.time in timesteps.c.det) {
 population.df.c.det$time <- c(start.time.c, timesteps.c)
 
 #'**Plot together**
-
+replayPlot(plt)
 plot_populations(population.df.c.det, new.graph=FALSE, col=c("red"), ylim = c(0, 100 * initial.count.c), lty=1)
 legend("topright", legend = c("stochastic", "deterministic"),
        col = c("black", "red"), lty=c(1,1))

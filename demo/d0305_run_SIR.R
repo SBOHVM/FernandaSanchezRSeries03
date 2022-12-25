@@ -13,25 +13,26 @@ library(stats)
 #' We are going to compare the stochastic and deterministic Susceptible-Infected-Recovered (SIR) model.
 #'
 #'
-#'SIR Model
+#' **SIR Model**
 #'
 #' 1. Susceptible model
 #'
-#'    $$S(t + 1) = S(t)-rbinom(1,I(t),\beta)$$
+#'    $$S(t + 1) = S(t)-\beta \times \frac{S(t)\times I(t)}{N}+\sigma \times I(t)$$
 #'
 #' 2. Infected model
 #'
-#'    $$I(t + 1) = S(t)+rbinom(1,I(t),\beta)- rbinom(1, I(t),\sigma)$$
+#'    $$I(t + 1) = S(t)+\beta \times \frac{S(t)\times I(t)}{N}-\sigma \times I(t)$$
 #'
 #' 3. Recovered model
 #'
-#'    $$R(t + 1) = R(t)+ rbinom(1, I(t),\sigma)$$
+#'    $$R(t + 1) = R(t)+\sigma \times I(t)$$
 #'
 #' 4. N is a constant for total population
 #'
 #'    $$N = S(t)+ I(t) + R(t)$$
 #'
 #'
+
 
 
 #' # Compare stochastic and deterministic models
@@ -585,5 +586,6 @@ plot_populations(final.populations.e.det, new.graph=FALSE, col=c("orange", "blue
 legend("topright", legend = c("Stochastic= susc.", "Stochastic= infect." ,"Stochastic=recov.","Deterministic= susc.", "Deterministic=infect.", "Deterministic=recov."),
        col = c("black", "red","green", "orange", "blue", "purple"), lty=c(1,1,1,1,1,1))
 
+#' **What would the transmission rate need to be to simulate an outbreak with R0 of 15 and a default recovery rate of 0.1?**
 #' The transmission rate to get an R0 of 15, with a recovery rate of 0.1, is 1.5.
 #' But we can't model with this parameter given that the function won't work with a transmission rate greater than 1.

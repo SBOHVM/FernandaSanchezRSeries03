@@ -1,6 +1,6 @@
 #' timestep_deterministic_SIR
 #'
-#' Run a timestep of a simple deterministic SIS model
+#' Run a timestep of a deterministic SIR model
 #'
 #' @param latest a data.frame containing the latest population of infecteds, susceptibles, recovereds, as well as time
 #' (column is 'infecteds', 'susceptibles', 'recovereds' and 'time')
@@ -11,7 +11,6 @@
 #' @return Returns a data.frame containing the updated population of infecteds, susceptibles, recovereds, as well as time
 #' @export
 #'
-
 
 timestep_deterministic_SIR <- function(latest, transmission.rate, recovery.rate, timestep) {
 

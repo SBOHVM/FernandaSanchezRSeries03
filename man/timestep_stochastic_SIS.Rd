@@ -17,8 +17,8 @@ timestep_stochastic_SIS(latest, transmission.rate, recovery.rate, timestep)
 \item{timestep}{the time interval}
 }
 \value{
-Returns a data.frame containing the updated population of infecteds and susceptibles, as wel as time
+Returns a data.frame containing the updated population of infecteds and susceptibles, as well as time
 }
 \description{
-Run a timestep of a simple stochastic SIS model
+Run a timestep of a stochastic SIS model
 }

@@ -10,22 +10,22 @@ library(RPiR)
 library(FernandaSanchezRSeries03)
 library(stats)
 
-#' We are going to compare the stochastic and deterministic Susceptible-Infected-Recovered (SIR) model.
+#' We are going to compare the deterministic Susceptible-Infected-Recovered (SIR) model and the average of the stochastic models.
 #'
 #'
-#'SIR Model
+#'**SIR Model**
 #'
 #' 1. Susceptible model
 #'
-#'    $$S(t + 1) = S(t)-rbinom(1,I(t),\beta)$$
+#'    $$S(t + 1) = S(t)-\beta \times \frac{S(t)\times I(t)}{N}+\sigma \times I(t)$$
 #'
 #' 2. Infected model
 #'
-#'    $$I(t + 1) = S(t)+rbinom(1,I(t),\beta)- rbinom(1, I(t),\sigma)$$
+#'    $$I(t + 1) = S(t)+\beta \times \frac{S(t)\times I(t)}{N}-\sigma \times I(t)$$
 #'
 #' 3. Recovered model
 #'
-#'    $$R(t + 1) = R(t)+ rbinom(1, I(t),\sigma)$$
+#'    $$R(t + 1) = R(t)+\sigma \times I(t)$$
 #'
 #' 4. N is a constant for total population
 #'
@@ -47,7 +47,7 @@ recovery.rate.a <-0.1
 
 num.cattle.a<-100
 
-# Set the initial number of infected and susceptible  individuals
+# Set the initial number of infected and susceptible individuals
 
 initial.infecteds.a <- 2
 initial.recovereds.a<-0
@@ -60,7 +60,7 @@ end.time.a <- 100
 # Timeste of our choice
 this.timesteps.a<-1
 
-#' ## Stochastic SIR (Scenario A)
+#' ## Average stochastic SIR
 #'
 #'
 #' Our data frame
@@ -122,7 +122,9 @@ mean.a<-final.frame.a/100
 plot_populations(mean.a, new.graph=TRUE)
 plt <- recordPlot()
 
-#' ## Deterministic SIR (Scenario A)
+#' ## Deterministic SIR
+#'
+#'
 # Our data frame
 population.a.det<- data.frame(time=start.time.a,
                            susceptibles = initial.susceptibles.a,
@@ -150,7 +152,7 @@ plot_populations(final.populations.a.det, new.graph=FALSE, lty=2)
 legend("topright", legend = c("Stochastic= susc.", "Stochastic= infect." ,"Stochastic=recov.","Deterministic= susc.", "Deterministic=infect.", "Deterministic=recov."),
        col = c("black", "red","green"), lty=c(1,1,1,2,2,2))
 
-#' # Increase initial infected population
+#' # Simulation B= Increase initial infected population
 #'
 #'
 #' Set up the simulation parameters
@@ -251,7 +253,7 @@ plot_populations(final.populations.b.det, new.graph=FALSE, lty=2)
 legend("topright", legend = c("Stochastic= susc.", "Stochastic= infect." ,"Stochastic=recov.","Deterministic= susc.", "Deterministic=infect.", "Deterministic=recov."),
        col = c("black", "red","green"), lty=c(1,1,1,2,2,2))
 
-#' # Small initial infected population and low values of R0
+#' # Simulation C= Small initial infected population and low values of R0
 #'
 #'
 #' Set up the simulation parameters
@@ -329,7 +331,9 @@ mean.c<-final.frame.c/100
 plot_populations(mean.c)
 plt <- recordPlot()
 
-#' Deterministic SIR
+#' ## Deterministic SIR
+#'
+#'
 population.c.det<- data.frame(time=start.time.c,
                            susceptibles = initial.susceptibles.c,
                            infecteds=initial.infecteds.c,
@@ -354,7 +358,7 @@ legend("topright", legend = c("Stochastic= susc.", "Stochastic= infect." ,"Stoch
        col = c("black", "red","green"), lty=c(1,1,1,2,2,2))
 
 
-#' # High R0 and high initial numbers of infecteds
+#' # Simulation D= High R0 and high initial numbers of infecteds
 #'
 #'
 #' Set up the simulation parameters
@@ -432,7 +436,9 @@ mean.d<-final.frame.d/100
 plot_populations(mean.d)
 plt <- recordPlot()
 
-#' Deterministic SIR
+#' ## Deterministic SIR
+#'
+#'
 population.d.det<- data.frame(time=start.time.d,
                               susceptibles = initial.susceptibles.d,
                               infecteds=initial.infecteds.d,
@@ -458,7 +464,7 @@ legend("topright", legend = c("Stochastic= susc.", "Stochastic= infect." ,"Stoch
        col = c("black", "red","green"), lty=c(1,1,1,2,2,2))
 
 
-#' # High R0 and low initial infected
+#' # Simulation E= High R0 and low initial infected
 #'
 #'
 #' Set up the simulation parameters

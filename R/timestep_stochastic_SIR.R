@@ -1,6 +1,6 @@
 #' timestep_stochastic_SIR
 #'
-#' Run a timestep of a simple stochastic SIR model
+#' Run a timestep of a stochastic SIR model
 #'
 #' @param latest a data.frame containing the latest population of infecteds, susceptibles and recovereds, as well as time
 #' (column is 'infecteds', 'susceptibles', 'recovereds' and 'time')
@@ -23,7 +23,7 @@ timestep_stochastic_SIR <- function(latest, transmission.rate, recovery.rate, ti
   if ((actual.infection.rate >= 1) || (effective.recovery.rate >= 1))
     stop("Effective rate too high, timestep must be too big")
 
-  #Calculate new recovered and new infected with random binomial numbers with a probability of transmission or recovery rate, to make it stochastic.
+  #Calculate new recovered and new infected with random binomial numbers with a probability of transmission or recovery rate
   new.recovered <- stats::rbinom(1,latest$infected, effective.recovery.rate)
   new.infected<-stats::rbinom(1,latest$susceptibles, actual.infection.rate)
 

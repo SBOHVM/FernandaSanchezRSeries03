@@ -6,8 +6,8 @@
 \alias{FernandaSanchezRSeries03}
 \title{FernandaSanchezRSeries03}
 \description{
-\code{FernandaSanchezRSeries03} is a dummy package containing a simple birth-death
-difference equation model.
+\code{FernandaSanchezRSeries03} Stochastic models in birth and death models,
+as well as SIS and SIR models.
 }
 \examples{
 \dontrun{

@@ -6,18 +6,18 @@
 #' ---
 #'
 
-#' We are going to evaluate the population growth with a stochastic model, by adding randomness to the birth and death counts.
-#' We will compare this model with different birth and death rates, as well as changing the end time and timesteps of the simulation.
-#'
-#' 1. Birth-death model: where $\beta$ is the birth rate and $\lambda$ the death rate
-#'
-#'    $$N(t + 1) = N(t)+ rbinom(1,N(t),\beta) - rbinom(1,N(t),\lambda)$$
-#'
-#'
-
 library(RPiR)
 library(FernandaSanchezRSeries03)
 library(stats)
+
+#' We are going to evaluate the population growth with a stochastic model, by adding randomness to the birth and death counts.
+#' We will compare this model with different birth and death rates, as well as changing the end time and timesteps of the simulation.
+#'
+#' **Birth-death model**: where $\beta$ is the birth rate and $\lambda$ the death rate
+#'
+#'    $$N(t + 1) = N(t)+ (N(t)\times\beta) - (N(t)\times\lambda)$$
+#'
+#'
 
 #' Set up the simulation parameters
 # Set the birth and death rates
@@ -63,7 +63,7 @@ while (keep.going) {
 #' And plot the results
 plot_populations(population.df)
 
-#' 1. Demonstrate stochasticity
+#' # Demonstrate stochasticity
 #'
 #'
 #' To demonstrate stochasticity we need to see variable outputs, therefore we have to include the 'while' loop inside a 'for loop', to plot several plots into one.

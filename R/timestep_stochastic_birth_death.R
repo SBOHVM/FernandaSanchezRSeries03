@@ -17,11 +17,11 @@ timestep_stochastic_birth_death <- function(latest,birth.rate, death.rate, times
   effective.death.rate<-death.rate*timestep
   new.count<-latest$count
 
-  #Stop the function if birth or death rate is igual or greater than 1
+  #Stop the function if birth or death rate is iqual or greater than 1
   if ((effective.birth.rate >= 1) || (effective.death.rate >= 1))
     stop("Effective rate too high, timestep must be too big")
 
-  #Calculate new births and new deaths with random binomial numbers with a probability of birth or death rate, to make it stochastic.
+  #Calculate new births and new deaths with random binomial numbers with a probability of birth or death rate
   new.births <- stats::rbinom(1, new.count, effective.birth.rate)
   new.deaths <- stats::rbinom(1, new.count, effective.death.rate)
 

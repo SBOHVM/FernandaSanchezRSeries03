@@ -1,6 +1,6 @@
 #' timestep_stochastic_SIS
 #'
-#' Run a timestep of a simple stochastic SIS model
+#' Run a timestep of a stochastic SIS model
 #'
 #' @param latest a data.frame containing the latest infecteds and susceptibles, as well as time
 #' (column is 'infecteds', 'susceptibles' and 'time')
@@ -8,7 +8,7 @@
 #' @param recovery.rate the transmission rate
 #' @param timestep the time interval
 #'
-#' @return Returns a data.frame containing the updated population of infecteds and susceptibles, as wel as time
+#' @return Returns a data.frame containing the updated population of infecteds and susceptibles, as well as time
 #' @export
 #'
 
@@ -23,7 +23,7 @@ timestep_stochastic_SIS <- function(latest, transmission.rate, recovery.rate, ti
   if ((actual.infection.rate >= 1) || (effective.recovery.rate >= 1))
     stop("Effective rate too high, timestep must be too big")
 
-  #Calculate new recovered and new infected with random binomial numbers with a probability of transmission or recovery rate, to make it stochastic.
+  #Calculate new recovered and new infected with random binomial numbers with a probability of transmission or recovery rate
   new.recovered <- stats::rbinom(1,latest$infected, effective.recovery.rate)
   new.infected<-stats::rbinom(1,latest$susceptibles, actual.infection.rate)
 

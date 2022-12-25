@@ -1,7 +1,7 @@
 #' FernandaSanchezRSeries03
 #'
-#' \code{FernandaSanchezRSeries03} is a dummy package containing a simple birth-death
-#' difference equation model.
+#' \code{FernandaSanchezRSeries03} Stochastic models in birth and death models,
+#' as well as SIS and SIR models.
 #'
 #' @author
 #' Fernanda Sanchez <2794747S@student.gla.ac.uk> (maintainer) \cr
