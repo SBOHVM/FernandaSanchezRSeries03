@@ -1,5 +1,5 @@
 # FernandaSanchezRSeries03
-Sthochastic models
+Stochastic models in birth and death models, as well as SIS and SIR models.
 
 
 Practical series 03: creating a package

@@ -8,7 +8,6 @@
 
 library(RPiR)
 library(FernandaSanchezRSeries03)
-library(stats)
 
 #' We are going to run our stochastic birth death model through two other functions, run simple and run simulation.
 #'

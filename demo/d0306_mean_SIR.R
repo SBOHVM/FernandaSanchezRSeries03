@@ -8,7 +8,6 @@
 
 library(RPiR)
 library(FernandaSanchezRSeries03)
-library(stats)
 
 #' We are going to compare the deterministic Susceptible-Infected-Recovered (SIR) model and the average of the stochastic models.
 #'

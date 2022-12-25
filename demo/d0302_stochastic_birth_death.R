@@ -8,7 +8,7 @@
 
 library(RPiR)
 library(FernandaSanchezRSeries03)
-library(stats)
+
 
 #' We are going to evaluate the population growth with a stochastic model, by adding randomness to the birth and death counts.
 #' We will compare this model with different birth and death rates, as well as changing the end time and timesteps of the simulation.

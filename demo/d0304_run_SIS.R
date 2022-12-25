@@ -8,7 +8,6 @@
 
 library(RPiR)
 library(FernandaSanchezRSeries03)
-library(stats)
 
 #' We are going to compare the stochastic and deterministic Susceptible-Infected-Susceptible (SIS) models.
 #'
