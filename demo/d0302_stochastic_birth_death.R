@@ -67,7 +67,7 @@ plot_populations(population.df)
 #'
 #'
 #' To demonstrate stochasticity we need to see variable outputs, therefore we have to include the 'while' loop inside a 'for loop', to plot several plots into one.
-#' Outside of the for loop we have to specify that the first graph is true, which will come in handy for the last part of the loop
+#' Outside of the for loop we have to specify that the first graph is true, which will come in handy for the last part of the loop.
 #' Here we did a sequence of 10, and inside we included the timestep sequence and the initial population data frame.
 #' We include the same while loop, with no changes.
 #' At the end of the 'for' loop we have to include an 'if'-'else' statement

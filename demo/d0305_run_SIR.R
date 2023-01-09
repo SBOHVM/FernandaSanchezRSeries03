@@ -249,7 +249,7 @@ final.populations.b.det <- run_simulation(timestep_deterministic_SIR,
 #' This is because the simulation ends when the infected population is 0,
 #' which happens when all individuals recover.
 #' This is not the case for the deterministic model, given that we didn't give it a condition when to end,
-#' so it only ends when the it reaches the end.time (in this case 100)
+#' so it only ends when the it reaches the end.time (in this case 100).
 #'
 #'
 replayPlot(plt)
@@ -356,7 +356,7 @@ final.populations.c.det <- run_simulation(timestep_deterministic_SIR,
 #'
 #'
 #' By also increasing the initial recovereds, the disease dies out quicker,
-#' therefore the stochastic simulation also end earlier than in scenario B.
+#' therefore the stochastic simulation also ends earlier than in scenario B.
 #'
 #'
 replayPlot(plt)
@@ -474,7 +474,7 @@ legend("topright", legend = c("Stochastic= susc.", "Stochastic= infect." ,"Stoch
        col = c("black", "red","green", "orange", "blue", "purple"), lty=c(1,1,1,1,1,1))
 
 
-#' Increase transmission rate
+#' # Increase transmission rate
 #'
 #'
 #' Set up the simulation parameters
@@ -572,10 +572,10 @@ final.populations.e.det <- run_simulation(timestep_deterministic_SIR,
 
 #' **Plot together**
 #'
-#' When we increase the transmission rate, we see a bigger infected population during the outbreak,
+#' When we increase the transmission rate, we see a bigger infected population during the outbreak.
 #' Given that most of the population gets infected very quickly,
 #' the susceptible population decreases with it.
-#' And when the susceptible population get's close to zero, the infected population starts to decrease,
+#' And when the susceptible population gets close to zero, the infected population starts to decrease,
 #' and the recovered population starts to increase.
 #' The stochastic models don't end earlier because the infected population is still recovering.
 #'

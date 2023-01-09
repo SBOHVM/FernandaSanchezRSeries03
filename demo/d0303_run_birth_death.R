@@ -150,24 +150,20 @@ for (new.time in timesteps.b.det) {
 population.df.b.det$time <- c(start.time.b, timesteps.b.det)
 
 #' **Plot together**
+#'
+#'
+#' We can see the variability of the stochastic model vs the deterministic.
+#' Given that the deterministic model doesn't take into account probabilities and randomness, the plot will always be the same.
+#' But the stochastic model given different outputs according to different scenarios.
+#'
 replayPlot(plt)
 plot_populations(population.df.b.det, new.graph=FALSE, col=c("red"), lty=1)
 legend("topright", legend = c("stochastic", "deterministic"),
        col = c("black", "red"), lty=c(1,1))
 
-#' We can see the variability of the stochastic model vs the deterministic.
-#' Given that the deterministic model doesn't take into account probabilities and randomness, the plot will always be the same.
-#' But the stochastic model given different outputs according to different scenarios.
-#'
-#'
+
 
 #' # Increase initial population size
-#'
-#'
-#' To be able to plot correctly the increase of initial population size,
-#' we need to adjust the y-axis scale to be able to see what happens with larger population sizes.
-#' Therefore, we need to set the y axis limit to 100*initial.count,
-#' to increase the limit according to the initial count of our choice.
 #'
 #'
 # Set the birth and death rates
@@ -201,6 +197,11 @@ plot_populations(final.populations.c)
 
 #' For loop
 #'
+#'
+#' To be able to plot correctly the increase of initial population size,
+#' we need to adjust the y-axis scale to be able to see what happens with larger population sizes.
+#' Therefore, we need to set the y axis limit to 100*initial.count,
+#' to increase the limit according to the initial count of our choice.
 #'
 population.df.c <- data.frame(count = initial.count.c,
                             time=start.time.c)
@@ -248,6 +249,13 @@ for (new.time in timesteps.c.det) {
 population.df.c.det$time <- c(start.time.c, timesteps.c)
 
 #'**Plot together**
+#'
+#' Here we can see that the plot is less steep than the previous one.
+#' This is because we have a higher population size, where we plot until the population
+#' reaches 500 individuals in this scenario. In comparison to the previous plot which
+#' only shows until a population size of 50 individuals.
+#'
+#'
 replayPlot(plt)
 plot_populations(population.df.c.det, new.graph=FALSE, col=c("red"), ylim = c(0, 100 * initial.count.c), lty=1)
 legend("topright", legend = c("stochastic", "deterministic"),

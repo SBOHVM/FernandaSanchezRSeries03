@@ -14,7 +14,7 @@
 
 timestep_deterministic_SIR <- function(latest, transmission.rate, recovery.rate, timestep) {
 
-  ## Calculate population changes
+  # Calculate population changes
   effective.transmission.rate<- transmission.rate*timestep
   effective.recovery.rate<-recovery.rate*timestep
 
@@ -27,7 +27,7 @@ timestep_deterministic_SIR <- function(latest, transmission.rate, recovery.rate,
   next.infecteds <- latest$infecteds + new.infected- new.recovered
   next.recovereds<-latest$recovereds+new.recovered
 
-  ## Return data frame containing next population count
+  # Return data frame containing next population count
   data.frame(susceptibles = next.susceptibles,
              infecteds=next.infecteds,
              recovereds=next.recovereds,

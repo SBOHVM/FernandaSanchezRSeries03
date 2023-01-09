@@ -73,12 +73,12 @@ population.df.a<- data.frame(time=start.time.a,
 #'
 #' To add data frames we first need to create an empty data frame outside of the loop.
 #' Then in the 'if' statement we need to specify that we want the first information and plot into the empty data frame.
-#' Then, the rest of the information and plots, will keep adding on to the data frame
+#' Then, the rest of the information and plots, will keep adding on to the data frame.
 #'
 #'
 #' We also need to include cleanup_timesteps to allow all simulation to have the same number of rows.
 #' In this case it will extend the data frame until the end.time when it happens to finish before that.
-#' If not, they can not be added and we get and error.
+#' If not, they can not be added and we get an error.
 #'
 #'
 first.graph<-TRUE
@@ -138,13 +138,13 @@ final.populations.a.det <- run_simulation(timestep_deterministic_SIR,
                                     recovery.rate = recovery.rate.a,
                                     timestep = this.timesteps.a)
 
-#' ** Plot together**
+#' **Plot together**
 #'
 #'
 #' We can see the difference between the average stochastic model and the deterministic.
 #' The number of infected individuals in the stochastic model is lower,
 #' therefore the susceptible population decreases slower as well as the recovered population.
-#' This indicated that the outbreak will take longer to die out with the average stochastic model.
+#' This indicates that the outbreak will take longer to die out with the average stochastic model.
 #'
 replayPlot(plt)
 plot_populations(final.populations.a.det, new.graph=FALSE, lty=2)
@@ -555,10 +555,10 @@ final.populations.e.det<- run_simulation(timestep_deterministic_SIR,
 #'  In this case the deterministic and average stochastic model are not very similar.
 #'  This is because with the stochastic model we are able to account for the possibility of "stochastic extinction".
 #'  This stochastic extinction happens when we have a high R0 (4) and a low initial infected population, in this case 1 individual.
-#'  So, with the stochastic model there is a possibility that that 1 individual will recover and not transmit the disease to anyone,
+#'  So, with the stochastic model there is a possibility that this 1 individual will recover and not transmit the disease to anyone,
 #'  therefore not causing an outbreak.
 #'  Or the possibility of infecting everyone and transmitting very fast, causing a big outbreak.
-#'  With this probabilities, the average of the stochastic simulation is somewhere in between these 2 possible scenarios.
+#'  With this probabilities, the average of the stochastic simulation is somewhere in between these two possible scenarios.
 #'  And the reason why it's so different from the deterministic, is because the deterministic doesn't account
 #'  for the possibility of that individual recovering and the disease not being transmitted.
 #'

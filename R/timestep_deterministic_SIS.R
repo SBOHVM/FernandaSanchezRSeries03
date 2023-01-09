@@ -14,7 +14,7 @@
 
 timestep_deterministic_SIS <- function(latest, transmission.rate, recovery.rate, timestep) {
 
-  ## Calculate population changes
+  # Calculate population changes
   effective.transmission.rate<- transmission.rate*timestep
   effective.recovery.rate<-recovery.rate*timestep
   population.size<-latest$susceptibles+ latest$infecteds
@@ -26,7 +26,7 @@ timestep_deterministic_SIS <- function(latest, transmission.rate, recovery.rate,
   next.susceptibles <- latest$susceptibles - new.infected + new.recovered
   next.infecteds <- latest$infecteds + new.infected- new.recovered
 
-  ## Return data frame containing next population and time
+  # Return data frame containing next population and time
   data.frame(susceptibles = next.susceptibles,
              infecteds=next.infecteds,
              time=latest$time+timestep)

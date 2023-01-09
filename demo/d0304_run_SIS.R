@@ -431,7 +431,7 @@ final.populations.d.det <- run_simulation(timestep_deterministic_SIS,
                                     recovery.rate = disease.recovery.rate.d,
                                     timestep = this.timesteps.d)
 
-#'** Plot together**
+#' **Plot together**
 #'
 #' By increasing the population size, the outbreak still happens, but at a later time than scenario A.
 #'
